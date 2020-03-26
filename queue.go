@@ -18,16 +18,16 @@ type Queue struct {
 	off int    // read at &buf[off], write at &buf[len(buf)]
 }
 
-// NewQueue creates and initializes a new Queue using buf as its
+// New creates and initializes a new Queue using buf as its
 // initial contents. The new Queue takes ownership of buf, and the
-// caller should not use buf after this call. NewQueue is intended to
+// caller should not use buf after this call. New is intended to
 // prepare a Queue to read existing data. It can also be used to set
 // the initial size of the internal queue for writing. To do that,
 // buf should have the desired capacity but a length of zero.
 //
 // In most cases, new(Queue) (or just declaring a Queue variable) is
 // sufficient to initialize a Queue.
-func NewQueue(buf []Elem) *Queue {
+func New(buf []Elem) *Queue {
 	return &Queue{buf: buf}
 }
 
